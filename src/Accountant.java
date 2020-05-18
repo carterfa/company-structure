@@ -1,15 +1,11 @@
 import java.util.ArrayList;
 public class Accountant extends BusinessEmployee {
 
-    private double bonusBudget;
-    TechnicalLead lead;
-    BusinessLead manager;
+    private TechnicalLead lead;
+    private BusinessLead manager;
 
     public Accountant (String name){
         super(name);
-        this.bonusBudget = bonusBudget;
-        this.lead = lead;
-        this.manager = manager;
     }
 
     public void setTeamSupported(TechnicalLead lead){
@@ -37,14 +33,14 @@ public class Accountant extends BusinessEmployee {
             for (SoftwareEngineer i : supportTeam) {
                 total += i.getBaseSalary() * 1.10;
             }
-            this.bonusBudget += total;
+            this.setBonusBudget(this.getBonusBudget() + total);
         }
     }
 
     public boolean approveBonus(double bonus){
         if (this.lead != null) {
-            if (bonus < this.bonusBudget){
-                this.bonusBudget -= bonus;
+            if (bonus < this.getBonusBudget()){
+                this.setBonusBudget(this.getBonusBudget() - bonus);
                 return true;
             }else{
                 return false;
@@ -56,9 +52,9 @@ public class Accountant extends BusinessEmployee {
 
     public String employeeStatus(){
         if (this.lead != null) {
-            return super.employeeStatus() + "with a budget of " +this.bonusBudget+" is supporting "+this.lead.getName()+".";
+            return super.employeeStatus()+" is supporting "+this.lead.getName()+".";
         }else{
-            return super.employeeStatus() + "with a budget of " +this.bonusBudget+".";
+            return super.employeeStatus()+".";
         }
 
     }

@@ -6,10 +6,6 @@ public class SoftwareEngineer extends TechnicalEmployee{
 
     public SoftwareEngineer (String name){
         super(name);
-        this.checkIns = checkIns;
-        this.codeAccess = codeAccess;
-        this.manager = manager;
-
     }
 
     public boolean getCodeAccess(){

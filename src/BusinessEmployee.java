@@ -1,6 +1,6 @@
 public abstract class BusinessEmployee extends Employee {
 
-    protected double bonusBudget;
+    private double bonusBudget;
 
     public BusinessEmployee(String name) {
         super(name, 50000);
@@ -10,7 +10,11 @@ public abstract class BusinessEmployee extends Employee {
         return this.bonusBudget;
     }
 
+    public void setBonusBudget(double bonusBudget) {
+        this.bonusBudget = bonusBudget;
+    }
+
     public String employeeStatus() {
-        return super.employeeStatus();
+        return super.employeeStatus()+ "with a budget of " +this.getBonusBudget();
     }
 }

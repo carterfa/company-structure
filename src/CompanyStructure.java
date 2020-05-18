@@ -8,6 +8,8 @@ public class CompanyStructure {
         CTO.addReport(seA);
         CTO.addReport(seB);
         CTO.addReport(seC);
+        seA.setCodeAccess(true);
+        seA.checkInCode();
         System.out.println(CTO.getTeamStatus());
 
         TechnicalLead VPofENG = new TechnicalLead("Bill Gates");
